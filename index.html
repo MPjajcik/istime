@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reálný Čas</title>
+    <title>IS Time</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
         }
         .clock {
             font-size: 3em;
@@ -20,17 +28,41 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .kara {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .kara img {
+            width: 200px;
+            border-radius: 50%;
+        }
+        .kara p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: transparent;
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
         }
     </style>
 </head>
 <body>
+    <h1>IS Time</h1>
     <div class="clock" id="clock"></div>
+    <div class="kara">
+        <img src="https://image.pmgstatic.com/cache/resized/w663/files/images/film/photos/159/871/159871072_50c6fa.jpg" alt="Jiří Kára">
+        <p>Děleeeej už si měl bejt zapsanej 4 minuty ty magore</p>
+    </div>
 
     <script>
         async function fetchTime() {
             const response = await fetch('/.netlify/functions/getTime');
             const data = await response.json();
-            document.getElementById('clock').innerText = new Date(data.time).toLocaleTimeString();
+            const time = new Date(data.time);
+            document.getElementById('clock').innerText = time.toLocaleTimeString();
         }
 
         setInterval(fetchTime, 1000);
