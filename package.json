@@ -4,7 +4,11 @@
     "main": "index.js",
     "license": "MIT",
     "dependencies": {
-      "ntp-client": "^1.0.0"
-    }
-  }
-  
+        "ntp-client": "^0.5.0"
+    },
+    "description": "IS Time",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": ""
+}
